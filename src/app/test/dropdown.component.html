@@ -11,6 +11,7 @@
     <select (change)="updateSelectedGroupValue($event)">
       <option *ngFor="let value of this.groupValues" [value]="value">
         {{ value }}
+        {{ this.buildAllValues() }}
       </option>
     </select>
 
@@ -24,5 +25,6 @@
 
 <div>
   Console Area
-  <div></div>
+  <div>
+  </div>
 </div>

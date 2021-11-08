@@ -4,11 +4,6 @@ export enum groupType {
   RANGES = 'ranges',
 }
 
-export interface AllValuesExpression {
-  attributeField: string;
-  groupType: groupType;
-}
-
 export abstract class Facet {
   public attributeName: string;
   public groupType: groupType;
@@ -28,14 +23,4 @@ export abstract class Facet {
   }
   abstract buildExpression(): Array<string>;
 
-  public buildFacet(
-    attribute: string,
-    groupValue: groupType
-  ): Array<AllValuesExpression> {
-    let expression: AllValuesExpression[] = [
-      { attributeField: attribute, groupType: groupValue },
-    ];
-
-    return expression;
-  }
 }

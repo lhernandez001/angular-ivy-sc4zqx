@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { groupType } from './facet';
+import { AllValues } from './facet/allValues-facet';
 @Component({
   selector: 'app-dropdown',
   templateUrl: './dropdown.component.html',
@@ -14,6 +16,7 @@ export class DropDownComponent {
 
   public attributeField: string;
   public groupTypeValue: string;
+  public allValues: AllValues;
 
   constructor() {
     this.attributeField = '';
@@ -28,5 +31,9 @@ export class DropDownComponent {
   public updateAttributeSelected(field) {
     this.attributeSelected = field.target.value;
     this.attributeField = this.attributeSelected;
+  }
+
+  public buildAllValues() {
+    this.allValues.buildFacet(this.attributeField, groupType.ALL_VALUES);
   }
 }
