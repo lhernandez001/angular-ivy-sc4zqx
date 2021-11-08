@@ -1,4 +1,15 @@
 <h3>Attribute</h3>
+<div *ngFor="let element of this.elements">
+  {{ this.setDefaultAttribute() }}
+</div>
+<div>
+  <button (click)="this.addFacet()">
+    <div *ngIf="this.isNewFacet === true">
+    </div>
+    Add new Facet
+  </button>
+</div>
+
 <select (change)="updateAttributeSelected($event)">
   <option *ngFor="let attribute of this.attributes" [value]="attribute">
     {{ attribute }}
@@ -6,25 +17,21 @@
 </select>
 
 <div id="divider">
-  <div>
-    <h3 id="groupValue">Select group value</h3>
-    <select (change)="updateSelectedGroupValue($event)">
-      <option *ngFor="let value of this.groupValues" [value]="value">
-        {{ value }}
-        {{ this.buildAllValues() }}
-      </option>
-    </select>
+  <h3 id="groupValue">Select group value</h3>
+  <select (change)="updateSelectedGroupValue($event)">
+    <option *ngFor="let value of this.groupValues" [value]="value">
+      {{ value }}
+    </option>
+  </select>
 
-    <div></div>
+  <div></div>
 
-    <h3>Expression Built</h3>
-    <input type="text" />
-  </div>
+  <h3>Expression Built</h3>
+  <input type="text" [value]="this.attributeField" />
 </div>
 <div>-------------</div>
 
 <div>
   Console Area
-  <div>
-  </div>
+  <div></div>
 </div>
